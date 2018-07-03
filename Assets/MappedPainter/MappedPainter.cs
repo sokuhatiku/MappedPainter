@@ -29,10 +29,18 @@ public class MappedPainter : MonoBehaviour
 	[SerializeField]
 	float paintRadius = 0.1f;
 
+	[Space]
+	[SerializeField]
+	Renderer debugMap;
+	[SerializeField]
+	Renderer debugResult;
+
+
 	RenderTexture positionMap;
 	RenderTexture destTexture;
 
 	Vector3 targetPoint = Vector3.zero;
+
 
 	private void Reset()
 	{
@@ -65,6 +73,12 @@ public class MappedPainter : MonoBehaviour
 		targetRenderer.SetPropertyBlock(block);
 
 		UpdatePositionMap();
+
+
+		if (debugMap != null)
+			debugMap.material.mainTexture = positionMap;
+		if (debugResult != null)
+			debugResult.material.mainTexture = destTexture;
 	}
 
 	private void Update()
@@ -89,7 +103,7 @@ public class MappedPainter : MonoBehaviour
 	{
 		positionMapper.SetPass(0);
 		Graphics.SetRenderTarget(positionMap);
-		Graphics.DrawMeshNow(targetMesh, transform.localToWorldMatrix);
+		Graphics.DrawMeshNow(targetMesh, Matrix4x4.identity);
 
 		UpdateRenderTexture(positionMap, extender);
 	}
