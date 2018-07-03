@@ -49,7 +49,7 @@
 				float4 pos_a = tex2D(_PositionMap, i.uv);
 				fixed4 inColor = tex2D(_MainTex, i.uv);
 
-				float3 wpos = mul(_ObjectToWorld, pos_a.xyz).xyz;
+				float3 wpos = mul(_ObjectToWorld, float4(pos_a.xyz, 1)).xyz;
 
 				bool dopaint = distance(wpos, _Pos_Rad.xyz) < _Pos_Rad.w;
 
