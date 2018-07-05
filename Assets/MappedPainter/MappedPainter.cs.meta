@@ -3,7 +3,15 @@ guid: 4aecf9d7e664a2a48b44d0def2bb881b
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - sourceTexture: {instanceID: 0}
+  - targetRenderer: {instanceID: 0}
+  - targetMesh: {instanceID: 0}
+  - positionMapper: {fileID: 2100000, guid: 12b29244be47d674193583a80a21951a, type: 2}
+  - extender: {fileID: 2100000, guid: 361d2fea131faff49be4d9463baf835a, type: 2}
+  - painter: {fileID: 2100000, guid: b11dd801cdc65f941aff1726667c9061, type: 2}
+  - debugMap: {instanceID: 0}
+  - debugResult: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
