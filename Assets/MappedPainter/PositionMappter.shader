@@ -35,7 +35,10 @@
 				v2f o;
 
 				float2 uv = v.uv * 2 - 1;
-				uv.y = - uv.y;
+
+				#if UNITY_UV_STARTS_AT_TOP
+				uv.y *= -1;
+				#endif
 
 				o.vertex = float4(uv, 1, 1);
 				o.pos = v.vertex;
